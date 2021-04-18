@@ -14,3 +14,10 @@ for(i in 1:150){
 take_turn(player1, monopoly)
 take_turn(player2, monopoly) }
 }
+
+print(setNames(monopoly$counts, 1:40))
+results <- cbind(gameboard, tally = monopoly$counts)
+barplot(monopoly$counts,names.arg = results$title, horiz = FALSE,las=2,cex.names=0.5)
+results <- cbind(results, rel = monopoly$counts/sum(monopoly$counts))
+arrange(results, desc(tally))
+print(results)
