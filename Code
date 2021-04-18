@@ -1,0 +1,16 @@
+# 1000 simulated games
+library(dplyr)
+## Use non-verbose random dice for Part 2
+set.seed(2)
+chance <- CardDeck$new(chancedeck, verbose = FALSE) 
+community <- CardDeck$new(communitydeck, verbose = FALSE) 
+dice <- RandomDice$new()
+monopoly <- SpaceTracker$new(verbose = FALSE)
+for(g in 1:1000) { if(g %% 100 == 0) {
+cat("#### SIMULATING GAME", g, "##### \n") }
+player1 <- Player$new(verbose = FALSE) 
+player2 <- Player$new(verbose = FALSE) 
+for(i in 1:150){
+take_turn(player1, monopoly)
+take_turn(player2, monopoly) }
+}
